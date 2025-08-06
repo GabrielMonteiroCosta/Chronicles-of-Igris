@@ -297,6 +297,9 @@ body {
   background-color: var(--raisin-black-2);
   padding-block: 20px;
   z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-bottom.active {
@@ -321,6 +324,10 @@ body {
   font-family: var(--ff-oxanium);
   font-size: 3rem;
   font-weight: var(--fw-800);
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  padding-left: 10px; 
 }
 
 .header-actions {
@@ -1661,3 +1668,15 @@ body {
   .footer .container { grid-template-columns: 1fr 0.7fr 0.7fr 1fr; }
 
 }
+
+.highlight {
+  outline: 2px solid #3399ff;
+  background: #e0f3ff;
+  transition: background 0.2s;
+}
+.logo img {
+  max-height: 50px;
+  width: auto;
+  display: block;
+}
+

@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Hotjar Tracking Code for https://gabrielmonteirocosta.github.io/Chronicles-of-Igris/ -->
 <script>
     (function(h,o,t,j,a,r){
@@ -82,7 +83,9 @@
     <div class="header-bottom skewBg" data-header>
       <div class="container">
 
-        <a href="#" class="logo">StarLity</a>
+        <a href="#" class="logo">
+            <img src="logo3.png" alt="StarLity Logo" />
+        </a>
 
         <nav class="navbar" data-navbar>
           <ul class="navbar-list">
@@ -125,15 +128,15 @@
   </header>
 
   <div class="search-container" data-search-box>
-    <div class="input-wrapper">
-      <input type="search" name="search" aria-label="search" placeholder="Pesquise Aqui!" class="search-field">
-      <button class="search-submit" aria-label="submit search" data-search-toggler>
-        <ion-icon name="search-outline"></ion-icon>
-      </button>
-      <button class="search-close" aria-label="close search" data-search-toggler></button>
-    </div>
+  <form class="input-wrapper" data-search-form>
+    <input type="search" name="search" aria-label="search" placeholder="Pesquise Aqui!" class="search-field" data-search-input>
+    <button type="submit" class="search-submit" aria-label="submit search">
+      <ion-icon name="search-outline"></ion-icon>
+    </button>
+    <button type="button" class="search-close" aria-label="close search" data-search-toggler></button>
+  </form>
+</div>
 
-  </div>
   <main>
     <article>
       <section class="section hero" id="home" aria-label="home"
@@ -152,7 +155,7 @@
           </div>
 
           <figure class="hero-banner img-holder" style="--width: 850; --height: 850;">
-            <img src="./assets/images/MerchantChar.png" width="850" height="850" alt="CharBanner" class="w-100">
+            <img src="logo3.png" width="850" height="850" alt="CharBanner" class="w-100">
           </figure>
         </div>
       </section>
@@ -194,7 +197,8 @@
 
 
 
-      <div class="section-wrapper" id="sobreOjogo">
+
+      <div class="section-wrapper place" data-place-name="" id="sobreOjogo">
         <section class="section latest-game" aria-label="latest game">
           <div class="container">
 
@@ -219,11 +223,11 @@
                     <a href="#" class="card-badge skewBg">Monstro</a>
 
                     <h3 class="h3">
-                      <a href="#" class="card-title">Slime <span class="span">Azul</span></a>
+                      <a href="#" class="card-title"> Slime <span class="span">Azul</span></a>
                     </h3>
 
                     <p class="card-price">
-                      É uma slime pequena, fofa e<span class="span">azul!</span></a> 
+                      &#11088; É uma slime pequena, fofa e<span class="span">azul! &#11088;</span></a> 
                     </p>
 
                   </div>
@@ -248,7 +252,7 @@
                     </h3>
 
                     <p class="card-price">
-                      Nosso Héroi principal é o Kenneth, ele é jovem, ele é medroso e não tem a menor ideia do que o aguarda em<span class="span">sua aventura.</span>
+                      ⭐Nosso Héroi principal é o Kenneth, ele é jovem, ele é medroso e não tem a menor ideia do que o aguarda em<span class="span">sua aventura. ⭐</span>
                     </p>
 
                   </div>
@@ -273,7 +277,7 @@
                     </h3>
 
                     <p class="card-price">
-                      Nunca se sabe quando uma caminhada pelo vale pode se tornar perigosa, você vai entender que um lugar lindo nem sempre é<span class="span">Seguro...</span>
+                      ⭐ Nunca se sabe quando uma caminhada pelo vale pode se tornar perigosa, você vai entender que um lugar lindo nem sempre é<span class="span">Seguro... ⭐</span>
                     </p>
 
                   </div>
@@ -286,7 +290,7 @@
           </div>
         </section>
 
-        <section class="section shop" id="shop" aria-label="shop"
+        <section class="section shop place" id="shop" aria-label="shop"
         style="background-image: url('./assets/images/shop-bg.jpg')">
         <div class="container">
 
@@ -302,7 +306,7 @@
           <ul class="has-scrollbar">
 
             <li class="scrollbar-item">
-              <div class="shop-card">
+              <div class="shop-card place">
                
                    No reino mágico de Aeldaria, onde a beleza e a harmonia reinavam, um terrível acontecimento abalou a paz: a princesa Lyria foi sequestrada pelo maléfico feiticeiro Malakar. O destino do reino agora depende de um jovem guerreiro chamado Kenneth. Mas Kenneth não é um herói comum; sua força vem tanto da espada quanto de sua mente afiada.
 
