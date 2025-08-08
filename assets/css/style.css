@@ -1746,21 +1746,81 @@ body {
 
 /*Tela de login*/
 
+body {
+  min-height: 100vh;
+  background: var(--raisin-black-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .user-dashboard {
-  max-width: 480px;
-  margin: 0 auto;
+  width: 700px;       /* painel bem mais largo */
+  min-height: 600px;  /* mais alto */
   background-color: var(--raisin-black-1);
-  border-radius: 12px;
-  padding: 2rem;
+  border-radius: 18px;
+  padding: 2.5rem 3.5rem 2.5rem 3.5rem;
   color: var(--white);
-  box-shadow: var(--shadow-2);
+  box-shadow: 0 0 40px 0 rgba(0,0,0,0.7);
   font-family: var(--ff-poppins);
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.user-profile-header {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.user-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--marigold);
+  background: #fff3;
+  box-shadow: 0 0 0 6px var(--raisin-black-3);
+  margin-bottom: 5px;
+}
+
+.btn-change-avatar {
+  background: var(--marigold);
+  color: var(--xiketic);
+  font-size: var(--fs-9);
+  border-radius: 7px;
+  padding: 7px 18px;
+  font-weight: var(--fw-700);
+  border: none;
+  transition: background-color 0.18s;
+  cursor: pointer;
+}
+
+.btn-change-avatar:hover {
+  background: #f5d163;
+}
+
+.user-welcome .h2 {
+  margin-block: 0 10px;
+  color: var(--marigold);
+  font-family: var(--ff-oxanium);
 }
 
 .user-tabs {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
+  margin-top: 1rem;
 }
 
 .tab-btn {
@@ -1768,13 +1828,14 @@ body {
   background: var(--xiketic);
   color: var(--marigold);
   font-weight: var(--fw-700);
-  padding: 12px 0;
-  border-radius: 10px;
+  padding: 15px 0;
+  border-radius: 11px 11px 0 0;
   border: none;
   cursor: pointer;
   font-size: var(--fs-8);
-  transition: background-color 0.25s ease;
-  margin: 0 5px;
+  transition: background-color 0.25s, color 0.25s;
+  margin: 0 6px;
+  box-shadow: 0 2px 10px 0 rgba(44,37,90,0.12);
 }
 
 .tab-btn.active,
@@ -1785,6 +1846,12 @@ body {
 
 .tab-content {
   display: none;
+  animation: fadeInTab 0.6s;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(8px);}
+  to   { opacity: 1; transform: none;   }
 }
 
 .tab-content.active {
@@ -1794,7 +1861,8 @@ body {
 .tab-content form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.3rem;
+  margin-top: 1rem;
 }
 
 .tab-content label {
@@ -1808,10 +1876,10 @@ body {
   border-radius: 8px;
   border: none;
   color: var(--white);
-  padding: 10px;
+  padding: 12px;
   font-size: var(--fs-9);
   outline: none;
-  transition: border-color 0.25s ease;
+  transition: border-color 0.25s;
 }
 
 .tab-content input[type="email"]:focus,
