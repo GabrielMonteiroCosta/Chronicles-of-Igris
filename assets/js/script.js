@@ -56,16 +56,25 @@ if (searchForm && searchInput) {
   });
 }
 
-//Cabeçalho
-const header = document.querySelector("[data-header]");
-const backTopBtn = document.querySelector("[data-back-top-btn]");
-
-window.addEventListener("scroll", function () {
-  if (window.scrollY >= 200) {
-    header.classList.add("active");
-    backTopBtn.classList.add("active");
-  } else {
-    header.classList.remove("active");
-    backTopBtn.classList.remove("active");
-  }
+// Troca de tabs
+document.querySelectorAll('.user-tabs .tab-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const tab = button.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(section => section.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById(tab).classList.add('active');
+  });
 });
+
+// Alterar imagem de perfil (preview imediato)
+document.getElementById('profile-upload').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById('profile-pic').src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
