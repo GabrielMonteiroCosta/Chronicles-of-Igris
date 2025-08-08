@@ -1,0 +1,63 @@
+<div class="user-dashboard">
+  <div class="user-profile-header">
+    <div class="user-image-wrapper">
+      <img id="profile-pic" src="assets/images/user-default.png" alt="Foto de Perfil">
+      <input type="file" id="profile-upload" accept="image/*" hidden>
+      <button type="button" class="btn-change-avatar" onclick="document.getElementById('profile-upload').click();">
+        Alterar Imagem
+      </button>
+    </div>
+    <div class="user-welcome">
+      <h2 class="h2">Olá, Usuário!</h2>
+      <p>Gerencie suas informações e privacidade.</p>
+    </div>
+  </div>
+<section class="tab-content active" id="email">
+    <h3 class="h3">Alterar E-mail</h3>
+    <form>
+      <label for="new-email">Novo E-mail</label>
+      <input type="email" id="new-email" placeholder="Digite seu novo e-mail" required>
+
+      <label for="password-email">Senha Atual</label>
+      <input type="password" id="password-email" placeholder="Digite sua senha atual" required>
+
+      <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
+    </form>
+  </section>
+
+  <section class="tab-content" id="senha">
+    <h3 class="h3">Alterar Senha</h3>
+    <form>
+      <label for="current-password">Senha Atual</label>
+      <input type="password" id="current-password" placeholder="Digite sua senha atual" required>
+
+      <label for="new-password">Nova Senha</label>
+      <input type="password" id="new-password" placeholder="Digite a nova senha" required>
+
+      <label for="confirm-password">Confirmar Nova Senha</label>
+      <input type="password" id="confirm-password" placeholder="Confirme a nova senha" required>
+
+      <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
+    </form>
+  </section>
+
+  <section class="tab-content" id="privacidade">
+    <h3 class="h3">Configurações de Privacidade</h3>
+    <form>
+      <label>
+        <input type="checkbox" checked>
+        Permitir que outros usuários vejam meu perfil
+      </label>
+      <label>
+        <input type="checkbox">
+        Receber notificações por e-mail
+      </label>
+      <label>
+        <input type="checkbox" checked>
+        Ativar autenticação em duas etapas
+      </label>
+
+      <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
+    </form>
+  </section>
+</div>
