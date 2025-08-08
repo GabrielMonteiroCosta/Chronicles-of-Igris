@@ -1745,3 +1745,84 @@ body {
 }
 
 /*Tela de login*/
+
+.user-dashboard {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--raisin-black-1);
+  border-radius: 12px;
+  padding: 2rem;
+  color: var(--white);
+  box-shadow: var(--shadow-2);
+  font-family: var(--ff-poppins);
+}
+
+.user-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  flex-grow: 1;
+  background: var(--xiketic);
+  color: var(--marigold);
+  font-weight: var(--fw-700);
+  padding: 12px 0;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-8);
+  transition: background-color 0.25s ease;
+  margin: 0 5px;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: var(--marigold);
+  color: var(--xiketic);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tab-content label {
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
+}
+
+.tab-content input[type="email"],
+.tab-content input[type="password"] {
+  background: var(--raisin-black-4);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  padding: 10px;
+  font-size: var(--fs-9);
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.tab-content input[type="email"]:focus,
+.tab-content input[type="password"]:focus {
+  border: 2px solid var(--marigold);
+}
+
+.tab-content label input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+  vertical-align: middle;
+}
+
+/* Botões herdando o estilo .btn .skewBg já definidos no seu CSS */
