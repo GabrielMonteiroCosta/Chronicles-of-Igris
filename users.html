@@ -1,63 +1,127 @@
-<div class="user-dashboard">
-  <div class="user-profile-header">
-    <div class="user-image-wrapper">
-      <img id="profile-pic" src="assets/images/user-default.png" alt="Foto de Perfil">
-      <input type="file" id="profile-upload" accept="image/*" hidden>
-      <button type="button" class="btn-change-avatar" onclick="document.getElementById('profile-upload').click();">
-        Alterar Imagem
-      </button>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página do Usuário</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/user.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="user-dashboard">
+    
+    <!-- Cabeçalho com foto e boas-vindas -->
+    <div class="user-profile-header">
+      <div class="user-image-wrapper">
+        <div class="profile-pic-wrapper">
+          <img id="profile-pic" src="assets/images/user-default.png" alt="Foto de Perfil">
+        </div>
+        <input type="file" id="profile-upload" accept="image/*" hidden>
+        <button type="button" class="btn-change-avatar" onclick="document.getElementById('profile-upload').click();">
+          Alterar Imagem
+        </button>
+      </div>
+      <div class="user-welcome">
+        <h2 class="h2">Olá, Usuário!</h2>
+        <p>Gerencie suas informações e privacidade.</p>
+      </div>
     </div>
-    <div class="user-welcome">
-      <h2 class="h2">Olá, Usuário!</h2>
-      <p>Gerencie suas informações e privacidade.</p>
+
+    <!-- Navegação das abas -->
+    <div class="user-tabs">
+      <button class="tab-btn active" data-tab="email">E-mail</button>
+      <button class="tab-btn" data-tab="senha">Senha</button>
+      <button class="tab-btn" data-tab="privacidade">Privacidade</button>
     </div>
+
+    <!-- Aba: Alterar E-mail -->
+    <section class="tab-content active" id="email">
+      <h3 class="h3">Alterar E-mail</h3>
+      <form>
+        <label for="new-email">Novo E-mail</label>
+        <input type="email" id="new-email" placeholder="Digite seu novo e-mail" required>
+
+        <label for="password-email">Senha Atual</label>
+        <input type="password" id="password-email" placeholder="Digite sua senha atual" required>
+
+        <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar Alterações</button>
+      </form>
+    </section>
+
+    <!-- Aba: Alterar Senha -->
+    <section class="tab-content" id="senha">
+      <h3 class="h3">Alterar Senha</h3>
+      <form>
+        <label for="current-password">Senha Atual</label>
+        <input type="password" id="current-password" placeholder="Digite sua senha atual" required>
+
+        <label for="new-password">Nova Senha</label>
+        <input type="password" id="new-password" placeholder="Digite a nova senha" required>
+
+        <label for="confirm-password">Confirmar Nova Senha</label>
+        <input type="password" id="confirm-password" placeholder="Confirme a nova senha" required>
+
+        <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
+      </form>
+    </section>
+
+    <!-- Aba: Configurações de privacidade -->
+    <section class="tab-content" id="privacidade">
+      <h3 class="h3">Configurações de Privacidade</h3>
+      <form>
+        <label>
+          <input type="checkbox" checked>
+          Permitir que outros usuários vejam meu perfil
+        </label>
+        <label>
+          <input type="checkbox">
+          Receber notificações por e-mail
+        </label>
+        <label>
+          <input type="checkbox" checked>
+          Ativar autenticação em duas etapas
+        </label>
+
+        <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
+      </form>
+    </section>
+
   </div>
-<section class="tab-content active" id="email">
-    <h3 class="h3">Alterar E-mail</h3>
-    <form>
-      <label for="new-email">Novo E-mail</label>
-      <input type="email" id="new-email" placeholder="Digite seu novo e-mail" required>
 
-      <label for="password-email">Senha Atual</label>
-      <input type="password" id="password-email" placeholder="Digite sua senha atual" required>
+  <script>
+    // Preview da nova imagem
+    document.getElementById('profile-upload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          document.getElementById('profile-pic').src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
 
-      <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
-    </form>
-  </section>
+    // Alternância das abas
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
 
-  <section class="tab-content" id="senha">
-    <h3 class="h3">Alterar Senha</h3>
-    <form>
-      <label for="current-password">Senha Atual</label>
-      <input type="password" id="current-password" placeholder="Digite sua senha atual" required>
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.getAttribute("data-tab");
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(tc => tc.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  </script>
 
-      <label for="new-password">Nova Senha</label>
-      <input type="password" id="new-password" placeholder="Digite a nova senha" required>
-
-      <label for="confirm-password">Confirmar Nova Senha</label>
-      <input type="password" id="confirm-password" placeholder="Confirme a nova senha" required>
-
-      <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
-    </form>
-  </section>
-
-  <section class="tab-content" id="privacidade">
-    <h3 class="h3">Configurações de Privacidade</h3>
-    <form>
-      <label>
-        <input type="checkbox" checked>
-        Permitir que outros usuários vejam meu perfil
-      </label>
-      <label>
-        <input type="checkbox">
-        Receber notificações por e-mail
-      </label>
-      <label>
-        <input type="checkbox" checked>
-        Ativar autenticação em duas etapas
-      </label>
-
-      <button type="submit" class="btn skewBg" style="--bg: var(--marigold)">Salvar</button>
-    </form>
-  </section>
-</div>
+</body>
+</html>

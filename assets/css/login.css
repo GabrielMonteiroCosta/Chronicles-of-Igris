@@ -1,0 +1,164 @@
+:root {
+
+  --rich-black-fogra-29_95: hsla(222, 18%, 11%, 0.95);
+  --raisin-black-1: hsl(0, 0%, 16%);
+  --raisin-black-2: hsl(236, 17%, 17%);
+  --raisin-black-3: hsl(280, 11%, 11%);
+  --raisin-black-4: hsl(280, 8%, 15%);
+  --english-violet: hsl(274, 21%, 23%);
+  --eerie-black-1: hsl(277, 25%, 10%);
+  --eerie-black-2: hsl(280, 7%, 8%);
+  --roman-silver: hsl(220, 6%, 59%);
+  --quick-silver: hsl(0, 1%, 65%);
+  --light-gray-1: hsl(0, 0%, 80%);
+  --light-gray-2: hsl(0, 2%, 82%);
+  --marigold_75: hsla(42, 99%, 46%, 0.75);
+  --xiketic_90: hsla(280, 37%, 8%, 0.9);
+  --cultured-2: hsl(0, 0%, 97%);
+  --marigold: hsl(42, 99%, 46%);
+  --platinum: hsl(0, 0%, 89%);
+  --dim-gray: hsl(0, 0%, 42%);
+  --white_15: hsla(0, 0%, 100%, 0.15);
+  --white_10: hsla(0, 0%, 100%, 0.1);
+  --xiketic: hsl(277, 25%, 10%);
+  --silver: hsl(0, 0%, 78%);
+  --white: hsl(0, 0%, 100%);
+  --jet: hsl(236, 13%, 23%);
+
+/*Fontes*/
+  --ff-oxanium: 'Oxanium', cursive;
+  --ff-poppins: 'Poppins', sans-serif;
+
+  --fs-1: 7rem;
+  --fs-2: 4.5rem;
+  --fs-3: 3.6rem;
+  --fs-4: 2.4rem;
+  --fs-5: 2.2rem;
+  --fs-6: 2rem;
+  --fs-7: 1.6rem;
+  --fs-8: 1.5rem;
+  --fs-9: 1.4rem;
+  --fs-10: 1.3rem;
+  --fs-11: 1.2rem;
+
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+
+  /*Algumas "Variáveis" para usar durante o CSS*/
+
+  --section-padding: 120px;
+  --gradient: radial-gradient(circle, hsl(250, 7%, 17%), hsl(250, 11%, 11%));
+  --shadow-1: 0px 2px 8px 0px hsla(0, 0%, 0%, 0.2),
+              inset 0px 2px 8px 0px hsla(0, 0%, 0%, 0.4);
+  --shadow-2: 0px 5px 10px 1px hsla(0, 0%, 0%, 0.4);
+  --shadow-3: 0px 5px 10px 1px hsla(219, 98%, 17%, 0.2);
+  --shadow-4: 0px 5px 10px 1px hsla(0, 0%, 0%, 0.15);
+  --transition: 0.25s ease;
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+}
+
+.login-body {
+  min-height: 100vh;
+  background: var(--raisin-black-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-poppins);
+}
+
+/* Container estilizado como o .user-dashboard */
+.login-container {
+  width: 700px; /* mesma largura do painel de usuário */
+  min-height: 500px;
+  background-color: var(--raisin-black-1);
+  border-radius: 18px;
+  padding: 2.5rem 3.5rem;
+  color: var(--white);
+  box-shadow: 0 0 40px 0 rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Título no mesmo estilo de boas-vindas */
+.login-container .section-title {
+  margin-bottom: 1.5rem;
+  color: var(--marigold);
+  font-family: var(--ff-oxanium);
+  font-size: var(--fs-3);
+  text-align: center;
+}
+
+/* Inputs harmonizados com os da página do usuário */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  background: var(--raisin-black-4);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  padding: 12px;
+  font-size: var(--fs-9);
+  outline: none;
+  transition: border-color 0.25s;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+  border: 2px solid var(--marigold);
+}
+
+.login-container input::placeholder {
+  color: #ccc;
+}
+
+/* Botão compatível com o estilo var(--marigold) e .skewBg */
+.login-container .btn {
+  background: var(--marigold);
+  color: var(--xiketic);
+  font-weight: var(--fw-700);
+  font-size: var(--fs-8);
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-container .btn:hover {
+  background-color: #f0c948;
+  transform: scale(1.05);
+}
+
+.btn i {
+  margin-right: 8px;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  z-index: 0;
+  /* mantém sua cor base existente (var(--raisin-black-3)) como fallback atrás da imagem */
+}
+
+body::before {
+  content: "";
+  position: fixed;       /* efeito parallax sutil; rolagem fica independente do conteúdo */
+  inset: 0;              /* top/right/bottom/left: 0 */
+  background-image: url('/assets/images/backgroundSite.png'); /* ajuste o caminho se necessário */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.4;          /* “meio apagado”; ajuste entre 0 e 1 conforme desejar */
+  z-index: -1;           /* garante que fique atrás de todo o conteúdo */
+  pointer-events: none;  /* não captura cliques */
+}
